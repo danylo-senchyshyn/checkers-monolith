@@ -1,0 +1,555 @@
+main {
+    display: initial;
+}
+
+/* ===== АКТИВНАЯ НАВИГАЦИЯ ===== */
+nav a.active {
+    border-bottom: 2px solid gold;
+    color: gold;
+}
+
+.reviews-section {
+    width: 100%;
+    justify-content: center;
+}
+
+.reviews-page {
+    justify-content: center;
+}
+
+/* ===== ОБЁРТКА ДЛЯ ВСЕГО РАЗДЕЛА ===== */
+.reviews-container {
+    width: 100%;
+    margin: 20px auto 0; /* top | left+right | bottom */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* ===== ОБЩИЙ РЕЙТИНГ (СВОДКА) ===== */
+.review-summary {
+    display: flex;
+    justify-content: space-between; /* текст + кнопка по краям */
+    align-items: center; /* по вертикали выровнено */
+    flex-wrap: wrap;
+    backdrop-filter: blur(6px);
+    border-radius: 16px;
+    padding: 25px 30px;
+    color: #e0e0e0;
+    width: 100%;
+    max-width: 1200px;
+    font-size: 20px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.summary-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.summary-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ccc;
+    font-size: 19px;
+}
+
+.rating-average {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.stars-inline {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 8px;
+}
+
+.stars-inline svg {
+    width: 22px;
+    height: 22px;
+    transition: transform 0.2s ease;
+}
+
+.stars-inline svg:hover {
+    transform: scale(1.1);
+}
+
+/* ===== КНОПКА "ДОБАВИТЬ ОТЗЫВ" ===== */
+.add-review-button {
+    border: none;
+    padding: 12px 28px;
+    font-size: 18px;
+    background: linear-gradient(to right, #f39c12, #d35400);
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.add-review-button:hover {
+    background: linear-gradient(to right, #e67e22, #c0392b);
+    transform: scale(1.07);
+}
+
+.add-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* ===== СЕКЦИЯ С КОММЕНТАРИЯМИ ===== */
+.reviews {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* ===== ЕСЛИ НЕТ КОММЕНТАРИЕВ ===== */
+.no-comments-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    width: 100%;
+}
+
+.no-comments {
+    color: #bbb;
+    font-size: 1.3rem;
+    text-align: center;
+    font-style: italic;
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* ===== КАРТОЧКА ОТЗЫВА ===== */
+.review {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 40px;
+    color: #f0f0f0;
+    width: 100%;
+    max-width: 980px;
+    font-size: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+.review:hover {
+    transform: scale(1.03);
+}
+.review-date {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+}
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    font-size: 20px;
+}
+.review-info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.review-body {
+    margin-top: 10px;
+    font-size: 19px;
+    line-height: 1.8;
+    padding-left: 5px;
+}
+.player-name {
+    font-weight: bold;
+    font-size: 20px;
+    color: #f9d342;
+    cursor: default;
+}
+
+/* ===== АВАТАР ===== */
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+.avatar:hover {
+    transform: scale(1.05);
+}
+
+/* ===== ЦВЕТА ЗВЁЗД ===== */
+.text-yellow-300 {
+    color: #f9d342;
+}
+.text-gray-300 {
+    color: #999;
+}
+
+/* ===== ПАГИНАЦИЯ ===== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+.pagination a {
+    color: white;
+    padding: 12px 16px;
+    font-size: 18px;
+    text-decoration: none;
+    margin: 0 6px;
+    border-radius: 8px;
+    background-color: #2c3e50;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+.pagination a:hover {
+    background-color: #34495e;
+    transform: scale(1.05);
+}
+.pagination a.active {
+    background-color: gold;
+    color: black;
+    font-weight: bold;
+}
+
+/* ===== МОДАЛЬНОЕ ОКНО ===== */
+.modal {
+    position: fixed;
+    inset: 0;
+    display: flex;                 /* центрирование */
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    animation: fadeIn 0.25s ease forwards;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.modal-content {
+    background: rgba(30, 35, 45, 0.95);
+    padding: 28px 32px;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 520px;
+    box-shadow:
+            0 10px 25px rgba(0,0,0,0.6),
+            0 0 20px rgba(255,255,255,0.08) inset;
+    transform: scale(0.85);
+    animation: popIn 0.25s ease forwards;
+    color: #f1f1f1;
+}
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.close-button {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: #bbb;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.close-button:hover {
+    color: white;
+    transform: scale(1.2);
+}
+
+/* Форма */
+.modal-content form {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 18px;
+}
+
+.modal-content textarea,
+.modal-content select {
+    background: rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 12px;
+    color: #fff;
+    outline: none;
+    font-size: 17px;
+    transition: 0.2s;
+}
+.modal-content textarea:focus,
+.modal-content select:focus {
+    border-color: gold;
+    background: rgba(255,255,255,0.12);
+}
+
+.submit-review-btn {
+    margin-top: 10px;
+    background: linear-gradient(90deg, #ffb300, #ff8c00);
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #222;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.25s;
+}
+.submit-review-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #ffca2c, #ff9800);
+    box-shadow: 0 0 12px rgba(255, 193, 7, 0.6);
+}
+
+/* ===== КНОПКА "ДОБАВИТЬ КОММЕНТАРИЙ" ===== */
+.add-comment-button {
+    border: none;
+    padding: 12px 28px;
+    font-size: 18px;
+    background: linear-gradient(to right, #3498db, #2980b9);
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+.add-comment-button:hover {
+    background: linear-gradient(to right, #2980b9, #3498db);
+    transform: scale(1.07);
+}
+
+/* ===== Две колонки: Комментарии слева, Рейтинги справа ===== */
+.reviews-section {
+    width: 100%;
+    max-width: 1260px;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+/* Левая колонка — Comments */
+.comments-list {
+    flex: 2;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(6px);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Правая колонка — Ratings */
+.ratings-list {
+    flex: 1.2;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(6px);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* Заголовки */
+.comments-list h3, .ratings-list h3 {
+    font-size: 22px;
+    margin-bottom: 14px;
+    color: gold;
+    text-align: center;
+}
+
+/* ===== Комментарий ===== */
+.comment-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.comment-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+.comment-avatar-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.comment-avatar-name .avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+}
+
+.comment-avatar-name .avatar:hover {
+    transform: scale(1.1);
+}
+
+.comment-avatar-name .player-name {
+    font-weight: bold;
+    font-size: 20px;
+    color: #f9d342;
+    text-align: center;
+}
+
+.comment-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+}
+
+.comment-body {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background: rgba(255,255,255,0.02);
+    padding: 12px 14px;
+    border-radius: 12px;
+    word-wrap: break-word;
+}
+
+/* ===== Рейтинг ===== */
+.ratings-list {
+    flex: 1.2;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Заголовок */
+.ratings-list h3 {
+    font-size: 22px;
+    margin-bottom: 14px;
+    color: gold;
+    text-align: center;
+}
+
+/* Карточка рейтинга */
+.rating-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rating-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+}
+
+/* Аватар */
+.avatar.small {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.2s ease;
+}
+
+.avatar.small:hover {
+    transform: scale(1.1);
+}
+
+/* Содержимое рейтинга */
+.rating-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.rating-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Ник игрока */
+.player-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #f9d342;
+}
+
+/* Звёзды */
+.player-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    color: #f9d342;
+    font-size: 18px;
+}
+
+/* Дата */
+.rating-date {
+    white-space: nowrap;
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    text-align: right;
+}

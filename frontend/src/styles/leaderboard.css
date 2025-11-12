@@ -1,0 +1,91 @@
+/* LEADERBOARD.CSS */
+nav a.active {
+    border-bottom: 2px solid gold;
+    color: gold;
+}
+.leaderboard-container {
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+.leaderboard-title {
+    color: gold;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.4);
+}
+.player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 25px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+.player:hover {
+    transform: scale(1.02);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+.nickname {
+    flex: 1;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-left: 1.5rem;
+}
+.points {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: gold;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    margin-right: 1rem;
+}
+/* Градиенты по местам */
+.shade-0 { background: linear-gradient(to right, #c49a6c, #8c6239); }
+.shade-1 { background: linear-gradient(to right, #d4af7f, #a47c48); }
+.shade-2 { background: linear-gradient(to right, #deb887, #bc8f8f); }
+/* Остальные места с нейтральным фоном */
+.shade-3, .shade-4, .shade-5,
+.shade-6, .shade-7, .shade-8, .shade-9 {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .leaderboard-title {
+        font-size: 2rem;
+    }
+
+    .player {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .avatar {
+        margin-bottom: 10px;
+    }
+
+    .nickname, .points {
+        font-size: 1rem;
+    }
+}

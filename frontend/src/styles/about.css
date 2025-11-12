@@ -1,0 +1,57 @@
+/* ABOUT */
+nav a.active {
+    border-bottom: 2px solid gold;
+    color: gold;
+}
+.about {
+    max-width: 1000px;
+    padding: 40px;
+    margin: 50px auto; /* горизонтально центрируем и добавляем отступ сверху/снизу */
+    background: linear-gradient(135deg, #d4d4d4, #c0c0c0);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    animation: fadeIn 0.6s ease-out;
+    transition: all 0.3s ease;
+    text-align: center; /* текст внутри блока по центру */
+}
+.about:hover {
+    transform: scale(1.01);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+}
+.about h2 {
+    font-size: 40px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+.about h3 {
+    font-size: 26px;
+    color: #2c3e50;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.about p {
+    font-size: 20px;
+    color: #2c2c2c;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1440px) {
+    .about {
+        margin: 5vh auto;
+    }
+}
