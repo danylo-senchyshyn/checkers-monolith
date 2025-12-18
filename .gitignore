@@ -1,0 +1,66 @@
+# Comprehensive .gitignore for a Monolith (Spring Boot Backend + React Frontend)
+
+# Generic ignores
+.DS_Store
+*.log
+*.tmp
+.idea/             # IntelliJ IDEA project files
+.vscode/           # VS Code project files
+.project
+.classpath
+.settings/
+.factorypath
+
+# Maven ignores
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.m2/repository/
+
+# Maven Wrapper
+.mvn/wrapper/maven-wrapper.jar
+
+# Eclipse/STS specific
+.apt_generated
+.factorypath
+.springBeans
+.sts4-cache
+
+# NetBeans specific
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+# Spring Boot specific
+*.jks # Keystore files
+*.p12 # PKCS12 Keystore files
+hs_err_pid* # JVM crash logs
+*.zip # Generated archives
+*.tar.gz # Generated archives
+
+# Frontend (React/Vite) specific ignores
+/frontend/node_modules/
+/frontend/dist/           # Vite build output
+/frontend/build/          # React build output (if using create-react-app or similar)
+/frontend/.env
+/frontend/.env.local
+/frontend/.env.*.local
+/frontend/.parcel-cache/
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+/frontend/.vite/
+
+# Others
+HELP.md
+mvnw
+mvnw.cmd
+.gitattributes

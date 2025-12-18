@@ -1,93 +1,117 @@
-# checkers-monolith
+# Checkers Monolith Application
 
+This project implements a classic Checkers game as a monolithic application. It serves as a comprehensive example and a direct comparison point against a microservices architecture, highlighting the architectural characteristics and trade-offs inherent in a monolithic design.
 
+## Architecture Overview
 
-## Getting started
+The application is structured as a traditional monolith, integrating both backend and frontend components within a single deployable unit (though developed in separate sub-projects for clarity). Key characteristics include:
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+*   **Single Codebase:** All functionalities, from user management to game logic, reside in one repository and are compiled together.
+*   **Layered Design:** The backend follows a standard layered architecture (Controller, Service, Repository, Entity, DTO) typical for Spring Boot applications.
+*   **Shared Database:** All logical domains (Users, Games, Scores, Comments, Ratings) are designed to interact with a single, unified database.
+*   **In-Process Communication:** Components within the application communicate directly via method calls, avoiding network overhead.
+*   **Unified Deployment:** The entire application is designed to be deployed as a single artifact.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+This design consciously embraces the strengths of a monolith – simplicity in development and deployment for small to medium-sized projects, strong data consistency, and high performance due to internal process calls – while providing a clear architectural contrast to distributed systems.
 
-## Add your files
+## Features
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+*   User registration and authentication
+*   Checkers game logic
+*   Score tracking and leaderboard
+*   Game rating system
+*   Comment section for games
+
+## Technologies
+
+*   **Backend:**
+    *   Java 17+
+    *   Spring Boot (Web, Data JPA)
+    *   Maven
+    *   H2 Database (for development/in-memory)
+*   **Frontend:**
+    *   React 18+
+    *   JavaScript (ES6+)
+    *   Vite
+    *   npm / Yarn
+
+## Getting Started
+
+To get the Checkers Monolith application up and running on your local machine, follow these steps:
+
+### Prerequisites
+
+Ensure you have the following installed:
+
+*   Java Development Kit (JDK) 17 or higher
+*   Apache Maven 3.6.3 or higher
+*   Node.js (LTS version)
+*   npm (comes with Node.js) or Yarn
+
+### Backend Setup
+
+1.  Navigate to the `backend` directory:
+    ```bash
+    cd backend
+    ```
+2.  Build the backend application (this will also download dependencies):
+    ```bash
+    mvn clean install
+    ```
+3.  Run the Spring Boot application:
+    ```bash
+    mvn spring-boot:run
+    ```
+    The backend will typically start on `http://localhost:8080`.
+
+### Frontend Setup
+
+1.  Open a new terminal window and navigate to the `frontend` directory:
+    ```bash
+    cd frontend
+    ```
+2.  Install the frontend dependencies:
+    ```bash
+    npm install # or yarn install
+    ```
+3.  Start the React development server:
+    ```bash
+    npm start # or yarn dev
+    ```
+    The frontend will typically start on `http://localhost:5173` (Vite's default) or `http://localhost:3000`.
+
+### Accessing the Application
+
+Once both backend and frontend are running, open your web browser and navigate to the frontend URL (e.g., `http://localhost:5173` or `http://localhost:3000`).
+
+## Project Structure
 
 ```
-cd existing_repo
-git remote add origin https://git.kpi.fei.tuke.sk/kpi-zp/2026/bp.danylo.senchyshyn/workspace/checkers-monolith.git
-git branch -M main
-git push -uf origin main
+.
+├── pom.xml                   # Maven parent project configuration
+├── backend/                  # Spring Boot backend application
+│   ├── pom.xml               # Backend Maven configuration
+│   └── src/                  # Backend source code
+│       └── main/java/sk/tuke/gamestudio/checkersmonolith/
+│           ├── CheckersMonolithApplication.java # Main Spring Boot class
+│           ├── controller/   # REST controllers
+│           ├── dto/          # Data Transfer Objects
+│           ├── entity/       # JPA Entities
+│           ├── game/         # Core game logic
+│           ├── repository/   # Spring Data JPA repositories
+│           └── service/      # Business logic services
+├── frontend/                 # React frontend application
+│   ├── package.json          # Frontend dependencies and scripts
+│   ├── vite.config.js        # Vite configuration
+│   └── src/                  # Frontend source code
+│       ├── App.jsx           # Main React component
+│       ├── main.jsx          # Entry point for React application
+│       ├── components/       # Reusable React components
+│       ├── images/           # Static assets
+│       └── pages/            # Page-level React components
+└── ... (other build/IDE files)
 ```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://git.kpi.fei.tuke.sk/kpi-zp/2026/bp.danylo.senchyshyn/workspace/checkers-monolith/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
 
 ## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+[MIT License](LICENSE) - *Replace with actual license or remove if not applicable*
